@@ -13,7 +13,7 @@ function App() {
   };
 
   const handleIncrement = () => {
-    setCounter(counter + 1);
+    setCounter((prevCounter) => prevCounter + 1);
   };
 
   return (
