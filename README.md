@@ -72,5 +72,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Hooks
 
+### Hooks Rule
+[reference](https://pt-br.legacy.reactjs.org/docs/hooks-rules.html)
+
 ### UseState
 [reference](https://react.dev/reference/react/useState)
+
+### UseEffect
+[reference](https://react.dev/reference/react/useEffect)
