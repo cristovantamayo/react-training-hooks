@@ -1,10 +1,11 @@
 import P from "prop-types";
 import "./App.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
-const Button = ({ incrementButton }) => {
+const Button = React.memo(function Button({ incrementButton }) {
+  console.log("Child render");
   return <button onClick={() => incrementButton(1)}>+</button>;
-};
+});
 
 Button.propTypes = {
   incrementButton: P.func,
@@ -13,9 +14,11 @@ Button.propTypes = {
 function App() {
   const [counter, setCounter] = useState(0);
 
-  const incrementCounter = (value) => {
-    setCounter(counter + value);
-  };
+  const incrementCounter = useCallback((value) => {
+    setCounter((c) => c + value);
+  }, []);
+
+  console.log("Father render");
 
   return (
     <div className="App">
