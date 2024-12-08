@@ -80,3 +80,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### UseEffect
 [reference](https://react.dev/reference/react/useEffect)
+
+### UseCallback
+[reference](https://pt-br.react.dev/reference/react/useCallback)
