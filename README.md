@@ -83,3 +83,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### UseCallback
 [reference](https://pt-br.react.dev/reference/react/useCallback)
+
+### UseMemo
+[reference](https://pt-br.react.dev/reference/react/useMemo)

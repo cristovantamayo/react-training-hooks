@@ -1,34 +1,58 @@
 import P from "prop-types";
+import { useEffect, useState, useMemo } from "react";
 import "./App.css";
-import React, { useState, useCallback, useMemo } from "react";
 
-const Button = ({ incrementButton }) => {
-  console.log("Child render");
-  return <button onClick={() => incrementButton(1)}>+</button>;
+const Post = ({ post }) => {
+  console.log("Target: " + post.title);
+  return (
+    <div key={post.id} className="post">
+      <p>post</p>
+      <p>{post.title}</p>
+      <p>{post.body}</p>
+    </div>
+  );
 };
 
-Button.propTypes = {
-  incrementButton: P.func,
+Post.propTypes = {
+  post: P.shape({
+    id: P.number,
+    title: P.string,
+    body: P.string,
+  }),
 };
 
 function App() {
-  const [counter, setCounter] = useState(0);
+  const [posts, setPosts] = useState([]);
+  const [value, setValue] = useState("");
+  console.log("Father rendered!");
 
-  const incrementCounter = useCallback((value) => {
-    setCounter((c) => c + value);
+  useEffect(() => {
+    setTimeout(function () {
+      fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => response.json())
+        .then((data) => setPosts(data));
+    }, 5000);
   }, []);
-
-  console.log("Father render");
-
-  const btn = useMemo(() => {
-    return <Button incrementButton={incrementCounter} />;
-  }, [incrementCounter]);
 
   return (
     <div className="App">
-      <p>Teste 3</p>
-      <h1>C1: {counter}</h1>
-      {btn}
+      <p>
+        <input
+          type="search"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </p>
+      {useMemo(() => {
+        return (
+          posts.length > 0 &&
+          posts.map((post) => {
+            return <Post key={post.id} post={post} />;
+          })
+        );
+      }, [posts])}
+
+      {posts.length === 0 && <p>Loading...</p>}
     </div>
   );
 }
