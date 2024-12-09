@@ -86,3 +86,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### UseMemo
 [reference](https://pt-br.react.dev/reference/react/useMemo)
+
+### UseRef
+[reference](https://pt-br.react.dev/reference/react/useRef)
+
+### UseContext
+[reference](https://pt-br.react.dev/reference/react/useContext)
