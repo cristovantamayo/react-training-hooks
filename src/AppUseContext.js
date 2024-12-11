@@ -1,5 +1,5 @@
 import "./App.css";
-import { Div } from "./components/Div";
+import { Div } from "./zComponents/Div";
 import { AppContext } from "./zContexts/AppContext";
 
 function App() {
