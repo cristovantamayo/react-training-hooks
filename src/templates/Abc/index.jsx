@@ -1,6 +1,16 @@
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams, useLocation, useHistory } from "react-router-dom";
 export const Abc = () => {
   const { slug, id } = useParams();
+  const location = useLocation();
+  const history = useHistory();
+
+  //console.log(history);
+  useEffect(() => {
+    setTimeout(() => {
+      history.push("/");
+    }, 5000);
+  }, [history]);
 
   return (
     <div className="Abc">
