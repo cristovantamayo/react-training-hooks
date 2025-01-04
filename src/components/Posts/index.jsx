@@ -17,12 +17,14 @@ export const Posts = () => {
 
   useEffect(() => {
     loadPosts(postsDispatch).then((dispatch) => {
+      console.log("1");
       if (isMounted.current) {
         dispatch();
       }
     });
     return () => {
       isMounted.current = false;
+      console.log("postsDispatch");
     };
   }, [postsDispatch]);
 
