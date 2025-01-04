@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./index.css";
 import { App } from "./templates/App";
 import { Abc } from "./templates/Abc";
+import { Page404 } from "./templates/Page404";
 import PropTypes from "prop-types";
 import { Menu } from "./components/Menu";
 
@@ -46,8 +47,11 @@ root.render(
     <Router>
       <Menu />
       <Switch>
+        <Route path="/abc/:slug/:id" component={Abc} exact />
+        <Route path="/abc/:slug" component={Abc} exact />
+        <Route path="/abc" component={Abc} exact />
         <Route path="/" component={App} exact />
-        <Route path="/abc/:slug?/:id?" component={Abc} exact />
+        <Route path="*" component={Page404} exact />
       </Switch>
     </Router>
   </ErrorBoundary>,
